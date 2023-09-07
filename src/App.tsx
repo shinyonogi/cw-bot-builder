@@ -2,12 +2,16 @@ import './App.css';
 
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import Builder from './components/Builder';
 
 function App() {
   return (
     <div className="app">
       <Sidebar/>
-      <Navbar/>
+      <div className='main'>
+        <Navbar/>
+        <Builder/>
+      </div>
     </div>
   );
 }

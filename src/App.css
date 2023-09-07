@@ -21,6 +21,7 @@ time, mark, audio, video {
 
 .app {
   display: flex;
+  font-family: 'Roboto', sans-serif;
 }
 
 .sidebar-container {
@@ -33,12 +34,16 @@ time, mark, audio, video {
   border-right: solid 1px rgb(193, 191, 191);
 }
 
+.main {
+  width: calc(100% - 4.3rem);
+}
+
 .navbar-container {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   height: 2.8rem;
-  width: calc(100% - 4.3rem);
+  width: 100%;
   padding: 0 2rem;
   border-bottom: solid 1px rgb(193, 191, 191);
 }
@@ -47,6 +52,71 @@ time, mark, audio, video {
   font-size: medium;
   font-weight: 600;
 }
+
+.builder-container {
+  box-sizing: border-box;
+  margin: 0 3rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1.5rem 0rem;
+  border-bottom: solid 1px rgb(147, 141, 141);
+}
+
+.input-element {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 3rem;
+}
+
+.input-element h2 {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.input {
+  border-radius: 1.5rem;
+  border: solid 1px rgb(120, 119, 119);
+}
+
+.input-field-necessary {
+  height: 2.5rem;
+  width: 10rem;
+  padding: 0rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.button {
+  border-radius: 50px;
+}
+
+.button-submit {
+  width: 15rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(121, 186, 186);
+}
+
+.button-submit h2 {
+  font-weight: 550;
+  font-size: 1.2rem;
+  color: #231919;
+}
+
+
 
 
 
