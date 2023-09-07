@@ -96,6 +96,7 @@ time, mark, audio, video {
 
 .button {
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .button-submit {
@@ -105,16 +106,14 @@ time, mark, audio, video {
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 2rem;
+  font-weight: 550;
   border: none;
-  background-color: rgb(121, 186, 186);
+  color: white;
+  background-color: #61d8b6;
 }
 
-.button-submit h2 {
-  font-weight: 550;
-  font-size: 1.2rem;
-  color: #231919;
-}
 
 
 
