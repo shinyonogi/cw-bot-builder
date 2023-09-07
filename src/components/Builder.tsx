@@ -7,6 +7,15 @@ function Builder() {
     const [channelID, setchannelID] = useState<string>("");
     const [triggerKeyword, settriggerKeyword] = useState("");
 
+    const handleInputChange = (target: EventTarget & HTMLInputElement) => {
+        const {name, value} = target;
+        if (name === "botName") { setbotName(value); }
+        else if (name === "channelID") { setchannelID(value) }
+        else if (name === "triggerKeyword") { settriggerKeyword(value); }
+
+        //console.log(botName, channelID, triggerKeyword);
+    }
+
     return (
         <div className="builder-container">
             <div className="input-container">
@@ -16,6 +25,9 @@ function Builder() {
                         className="input-field-necessary input"
                         type="text"
                         placeholder="z.B. Recruiting Bot"
+                        name="botName"
+                        value={botName}
+                        onChange={(e) => handleInputChange(e.target)}
                     />
                 </div>
                 <div className="input-element">
@@ -24,6 +36,9 @@ function Builder() {
                         className="input-field-necessary input"
                         type="text"
                         placeholder="Channel ID"
+                        name="channelID"
+                        value={channelID}
+                        onChange={(e) => handleInputChange(e.target)}
                     />
                 </div>
                 <div
@@ -33,6 +48,9 @@ function Builder() {
                         className="input-field-necessary input"
                         type="text"
                         placeholder="z.B. #welcome"
+                        name="triggerKeyword"
+                        value={triggerKeyword}
+                        onChange={(e) => handleInputChange(e.target)}
                     />
                 </div>
                 <motion.button
