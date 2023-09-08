@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+import { searchSuggestKeywords } from './keywordSearch';
+
 function Builder() {
 
     const [botName, setBotName] = useState<string>("");
@@ -14,20 +16,19 @@ function Builder() {
         else if (name === "triggerKeyword") { setTriggerKeyword(value); }
     }
 
-
-    const keywords = ['Send Message', 'Send Message with Button (Callback)', 'Send Message with Button (Link)', 'Send Message with document', 'Send Message with image'
-    , 'Send Message with video', 'Set Label', 'Set Atrributes', 'Wait for User Input'];
     const [suggestKeywords, setSuggestKeywords] = useState<string[]>([]);
     const [botAction, setBotAction] = useState<string>("");
 
     const handleSearchChange = (value: string) => {
         setBotAction(value);
-        const matches = keywords.filter(k => k.includes(value));
+
+        const matches = searchSuggestKeywords(value);
         setSuggestKeywords(matches);
     }
 
     const selectKeyword = (keyword: string) => {
         setBotAction(keyword);
+
         setSuggestKeywords([]);
     }
 
