@@ -26,6 +26,11 @@ function Builder() {
         setSuggestKeywords(matches);
     }
 
+    const selectKeyword = (keyword: string) => {
+        setBotAction(keyword);
+        setSuggestKeywords([]);
+    }
+
 
     const handleBotSubmit = () => {
         //console.log(botName, channelID, triggerKeyword);
@@ -79,21 +84,22 @@ function Builder() {
                 </motion.button>
             </div>
             <div className="flow-container">
-                <h1>Bot Workflow</h1>
+                <h1 className="title-workflow">Bot Workflow</h1>
                 <div className="flow-element">
 
                 </div>
                 <div className="search-container">
-                    <h2>What do you want to add?</h2>
+                    <h2 className="search-question">What do you want to add?</h2>
                     <input
+                        className="input-question input"
                         value={botAction}
                         onChange={(e) => handleSearchChange(e.target.value)}
                         placeholder="z.B. Send Message"
                     />
                     {suggestKeywords.length > 0 && (
-                        <ul>
+                        <ul className="list-suggestion">
                             {suggestKeywords.map(k => (
-                                <li key={k}>{k}</li>
+                                <li key={k} onClick={() => selectKeyword(k)}>{k}</li>
                             ))}
                         </ul>
                     )}
