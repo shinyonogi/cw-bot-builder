@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { searchSuggestKeywords } from './keywordSearch';
@@ -19,19 +19,35 @@ function Builder() {
     const [suggestKeywords, setSuggestKeywords] = useState<string[]>([]);
     const [botAction, setBotAction] = useState<string>("");
 
-    const handleSearchChange = (value: string) => {
-        setBotAction(value);
-
-        const matches = searchSuggestKeywords(value);
-        setSuggestKeywords(matches);
+    const handleSearchChange = (userInputBotAction: string) => {
+        setBotAction(userInputBotAction);
+        setSuggestKeywords(searchSuggestKeywords(userInputBotAction));
     }
 
     const selectKeyword = (keyword: string) => {
         setBotAction(keyword);
-
         setSuggestKeywords([]);
     }
 
+    const [needMessageText, setNeedMessageText] = useState<boolean>(false);
+
+    useEffect( () => {
+        if (botAction === 'Send Message') {
+            setNeedMessageText(true);
+        }else {
+            setNeedMessageText(false);
+        }
+    }, [botAction])
+
+    const [messageText, setMessageText] = useState<string>("");
+
+    const handleMessageTextChange = (userInputMessageText: string) => {
+        setMessageText(userInputMessageText);
+    }
+
+    const handleBotActionSubmit = () => {
+        console.log(botAction, messageText);
+    }
 
     const handleBotSubmit = () => {
         //console.log(botName, channelID, triggerKeyword);
@@ -104,6 +120,25 @@ function Builder() {
                             ))}
                         </ul>
                     )}
+                    {needMessageText && (
+                        <textarea
+                            className="input-message-text input"
+                            placeholder="z.B. Hallo, Test Text hier."
+                            value={messageText}
+                            onChange={(e) => handleMessageTextChange(e.target.value)}
+                        ></textarea>
+                    )}
+                    <div className="button-container">
+                        <motion.button
+                            className="button-choose-action button"
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.9 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                            onClick={handleBotActionSubmit}
+                        >
+                        Choose Bot Action
+                        </motion.button>
+                    </div>
                 </div>
             </div>
         </div>
