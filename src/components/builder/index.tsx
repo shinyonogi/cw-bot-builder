@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { searchSuggestKeywords } from './keywordSearch';
+import { createJsonBotAction } from "./jsonBuilder";
 
 function Builder() {
 
@@ -17,27 +18,28 @@ function Builder() {
     }
 
     const [suggestKeywords, setSuggestKeywords] = useState<string[]>([]);
-    const [botAction, setBotAction] = useState<string>("");
+    const [botActionType, setBotActionType] = useState<string>("");
+    //const [messageActionType, setMessageActionType] = useState<string>("");
 
     const handleSearchChange = (userInputBotAction: string) => {
-        setBotAction(userInputBotAction);
+        setBotActionType(userInputBotAction);
         setSuggestKeywords(searchSuggestKeywords(userInputBotAction));
     }
 
     const selectKeyword = (keyword: string) => {
-        setBotAction(keyword);
+        setBotActionType(keyword);
         setSuggestKeywords([]);
     }
 
     const [needMessageText, setNeedMessageText] = useState<boolean>(false);
 
     useEffect( () => {
-        if (botAction === 'Send Message') {
+        if (botActionType === 'Send Message') {
             setNeedMessageText(true);
         }else {
             setNeedMessageText(false);
         }
-    }, [botAction])
+    }, [botActionType])
 
     const [messageText, setMessageText] = useState<string>("");
 
@@ -45,12 +47,16 @@ function Builder() {
         setMessageText(userInputMessageText);
     }
 
+
+    const [workFlow, setWorkFlow] = useState<any[]>([]);
+
     const handleBotActionSubmit = () => {
-        console.log(botAction, messageText);
+        const newWorkFlow = createJsonBotAction(botActionType, messageText);
+        setWorkFlow(prevWorkFlow => [...prevWorkFlow, newWorkFlow]);
     }
 
     const handleBotSubmit = () => {
-        //console.log(botName, channelID, triggerKeyword);
+        console.log(workFlow);
     }
 
     return (
@@ -109,7 +115,7 @@ function Builder() {
                     <h2 className="search-question">What do you want to add?</h2>
                     <input
                         className="input-question input"
-                        value={botAction}
+                        value={botActionType}
                         onChange={(e) => handleSearchChange(e.target.value)}
                         placeholder="z.B. Send Message"
                     />
