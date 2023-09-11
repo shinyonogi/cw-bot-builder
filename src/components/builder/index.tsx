@@ -79,7 +79,7 @@ function Builder() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Builder;

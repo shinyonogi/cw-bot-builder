@@ -1,4 +1,4 @@
-const createJsonBotAction = (actionType: string, messageText: string) => {
+const createJsonBotAction = (actionType: string, messageText: string, value: string) => {
 
     if (actionType === 'Send Message') {
         return {
@@ -11,8 +11,16 @@ const createJsonBotAction = (actionType: string, messageText: string) => {
 				"text": messageText
 			}
 		}
-    }
-}
+    }else if (actionType === 'Set Label') {
+		return {
+			"id": "01",
+			"type": "set_label",
+			"action_on_success": "022",
+			"action_on_failure": "022",
+			"value": "CampaingDemo22"
+		}
+	};
+};
 
 export {
     createJsonBotAction

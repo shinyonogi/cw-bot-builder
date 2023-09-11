@@ -30,7 +30,7 @@ const useBotActions = () => {
     };
 
     const handleBotActionSubmit = () => {
-        const newWorkFlow = createJsonBotAction(botActionType, messageText);
+        const newWorkFlow = createJsonBotAction(botActionType, messageText, "");
         setWorkFlow(prevWorkFlow => [...prevWorkFlow, newWorkFlow]);
     };
 
