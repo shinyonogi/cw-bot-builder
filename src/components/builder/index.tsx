@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
-import { searchSuggestKeywords } from '../../utils/keywordSearch';
-import { createJsonBotAction } from "../../utils/jsonBuilder";
-
 import useBotActions from "../../hooks/useBotActions";
 
 import InputGeneral from "./InputComponents/InputGeneral";
@@ -16,23 +13,19 @@ function Builder() {
         botName, setBotName,
         channelID, setChannelID,
         triggerKeyword, setTriggerKeyword,
-        suggestKeywords, setSuggestKeywords,
-        botActionType, setBotActionType,
+        suggestKeywords,
+        botActionType,
         needMessageText, setNeedMessageText,
         messageText, setMessageText,
-        workFlow, setWorkFlow
+        workFlow,
+        handleSearchChange,
+        selectKeyword,
+        handleBotActionSubmit
     } = useBotActions();
 
-
-    const handleSearchChange = (userInputBotAction: string) => {
-        setBotActionType(userInputBotAction);
-        setSuggestKeywords(searchSuggestKeywords(userInputBotAction));
-    }
-
-    const selectKeyword = (keyword: string) => {
-        setBotActionType(keyword);
-        setSuggestKeywords([]);
-    }
+    const handleBotSubmit = () => {
+        console.log(workFlow);
+    };
 
     useEffect( () => {
         if (botActionType === 'Send Message') {
@@ -40,17 +33,7 @@ function Builder() {
         }else {
             setNeedMessageText(false);
         }
-    }, [botActionType, setNeedMessageText])
-
-
-    const handleBotActionSubmit = () => {
-        const newWorkFlow = createJsonBotAction(botActionType, messageText);
-        setWorkFlow(prevWorkFlow => [...prevWorkFlow, newWorkFlow]);
-    }
-
-    const handleBotSubmit = () => {
-        console.log(workFlow);
-    }
+    }, [botActionType, setNeedMessageText]);
 
     return (
         <div className="builder-container">

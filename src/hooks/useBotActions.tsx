@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { searchSuggestKeywords } from '../utils/keywordSearch';
+import { createJsonBotAction } from "../utils/jsonBuilder";
 
 const useBotActions = () => {
 
@@ -16,6 +18,21 @@ const useBotActions = () => {
 
     const [workFlow, setWorkFlow] = useState<any[]>([]);
 
+    const handleSearchChange = (userInput: string) => {
+        setBotActionType(userInput);
+        setSuggestKeywords(searchSuggestKeywords(userInput));
+    };
+
+    const selectKeyword = (keyword: string) => {
+        setBotActionType(keyword);
+        setSuggestKeywords([]);
+    };
+
+    const handleBotActionSubmit = () => {
+        const newWorkFlow = createJsonBotAction(botActionType, messageText);
+        setWorkFlow(prevWorkFlow => [...prevWorkFlow, newWorkFlow]);
+    };
+
     return {
         botName, setBotName,
         channelID, setChannelID,
@@ -24,7 +41,10 @@ const useBotActions = () => {
         botActionType, setBotActionType,
         needMessageText, setNeedMessageText,
         messageText, setMessageText,
-        workFlow, setWorkFlow
+        workFlow, setWorkFlow,
+        handleSearchChange,
+        selectKeyword,
+        handleBotActionSubmit
     }
 
 };
