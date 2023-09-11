@@ -52,7 +52,9 @@ function Builder() {
             </div>
             <div className="flow-container">
                 <h1 className="title-workflow">Bot Workflow</h1>
-                <div className="flow-element"></div>
+                <div className="flow-container">
+
+                </div>
                 <div className="search-container">
                     <SearchSuggest
                         value={botActionType}

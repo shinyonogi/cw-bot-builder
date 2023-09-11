@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { searchSuggestKeywords } from '../utils/keywordSearch';
 import { createJsonBotAction } from "../utils/jsonBuilder";
 
@@ -18,13 +19,13 @@ const useBotActions = () => {
 
     const [workFlow, setWorkFlow] = useState<any[]>([]);
 
-    const handleSearchChange = (userInput: string) => {
-        setBotActionType(userInput);
-        setSuggestKeywords(searchSuggestKeywords(userInput));
+    const handleSearchChange = (userInputBotAction: string) => {
+        setBotActionType(userInputBotAction);
+        setSuggestKeywords(searchSuggestKeywords(userInputBotAction));
     };
 
-    const selectKeyword = (keyword: string) => {
-        setBotActionType(keyword);
+    const selectKeyword = (userInputKeyword: string) => {
+        setBotActionType(userInputKeyword);
         setSuggestKeywords([]);
     };
 
