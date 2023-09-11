@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 
 import { searchSuggestKeywords } from '../../utils/keywordSearch';
 import { createJsonBotAction } from "../../utils/jsonBuilder";
+
+import useBotActions from "../../hooks/useBotActions";
 
 import InputGeneral from "./InputComponents/InputGeneral";
 import InputMessageText from "./InputComponents/InputMessageText";
@@ -10,13 +12,17 @@ import SearchSuggest from "./SearchComponent/SearchSuggest";
 
 function Builder() {
 
-    const [botName, setBotName] = useState<string>("");
-    const [channelID, setChannelID] = useState<string>("");
-    const [triggerKeyword, setTriggerKeyword] = useState("");
+    const {
+        botName, setBotName,
+        channelID, setChannelID,
+        triggerKeyword, setTriggerKeyword,
+        suggestKeywords, setSuggestKeywords,
+        botActionType, setBotActionType,
+        needMessageText, setNeedMessageText,
+        messageText, setMessageText,
+        workFlow, setWorkFlow
+    } = useBotActions();
 
-    const [suggestKeywords, setSuggestKeywords] = useState<string[]>([]);
-    const [botActionType, setBotActionType] = useState<string>("");
-    //const [messageActionType, setMessageActionType] = useState<string>("");
 
     const handleSearchChange = (userInputBotAction: string) => {
         setBotActionType(userInputBotAction);
@@ -28,19 +34,14 @@ function Builder() {
         setSuggestKeywords([]);
     }
 
-    const [needMessageText, setNeedMessageText] = useState<boolean>(false);
-
     useEffect( () => {
         if (botActionType === 'Send Message') {
             setNeedMessageText(true);
         }else {
             setNeedMessageText(false);
         }
-    }, [botActionType])
+    }, [botActionType, setNeedMessageText])
 
-    const [messageText, setMessageText] = useState<string>("");
-
-    const [workFlow, setWorkFlow] = useState<any[]>([]);
 
     const handleBotActionSubmit = () => {
         const newWorkFlow = createJsonBotAction(botActionType, messageText);
