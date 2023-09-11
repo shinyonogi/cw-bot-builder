@@ -134,7 +134,7 @@ time, mark, audio, video {
 .search-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   width: 30%;
   padding: 2rem 5rem;
   border-radius: 1rem;
@@ -153,6 +153,7 @@ time, mark, audio, video {
   height: 2.5rem;
   padding-left: 1rem;
   font-size: large;
+  width: 90%;
 }
 
 .list-suggestion {
@@ -179,6 +180,7 @@ time, mark, audio, video {
   height: 10rem;
   padding: 0.6rem 1rem;
   margin-top: 1rem;
+  width: 100%;
 }
 
 .button-container {
@@ -196,8 +198,11 @@ time, mark, audio, video {
   font-family: 'Archivo Black', sans-serif;
 }
 
-
-
+.search-suggest-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 
 
