@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Builder from './components/Builder';
 
 function App() {
+
   return (
     <div className="app">
       <Sidebar/>
@@ -14,6 +15,7 @@ function App() {
       </div>
     </div>
   );
+
 }
 
 export default App;
