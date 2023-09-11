@@ -3,7 +3,7 @@ interface InputMessageTextProps {
     onChange: (value: string) => void;
 }
 
-const InputMessageText: React.FC<InputMessageTextProps> = ({value: messageText, onChange}) => {
+const InputMessageText: React.FC<InputMessageTextProps> = ({ value: messageText, onChange }) => {
     return (
         <textarea
             className="input-message-text input"

@@ -73,7 +73,7 @@ function Builder() {
                     <SearchSuggest
                         value={botActionType}
                         onChange={handleSearchChange}
-                        suggestKeywords={suggestKeywords}
+                        suggestedKeywords={suggestKeywords}
                         onSelectKeyword={selectKeyword}
                     />
                     {needMessageText && (
