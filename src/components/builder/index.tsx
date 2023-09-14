@@ -6,6 +6,7 @@ import useBotActions from "../../hooks/useBotActions";
 import InputGeneral from "./InputComponents/InputGeneral";
 import InputMessageText from "./InputComponents/InputMessageText";
 import SearchSuggest from "./SearchComponent/SearchSuggest";
+import CreatedFlowElement from "./FlowComponents/CreatedFlowElements";
 
 function Builder() {
 
@@ -53,7 +54,7 @@ function Builder() {
             <div className="flow-container">
                 <h1 className="title-workflow">Bot Workflow</h1>
                 <div className="flow-container">
-
+                    <CreatedFlowElement workFlow={workFlow}/>
                 </div>
                 <div className="search-container">
                     <SearchSuggest

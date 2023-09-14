@@ -189,7 +189,7 @@ time, mark, audio, video {
 }
 
 .button-choose-action {
-  height: 2.5rem;
+  height: 3rem;
   width: 60%;
   margin-top: 1.5rem;
   background-color: #987b7b;
@@ -203,11 +203,3 @@ time, mark, audio, video {
   flex-direction: column;
   align-items: center;
 }
-
-
-
-
-
-
-
-
