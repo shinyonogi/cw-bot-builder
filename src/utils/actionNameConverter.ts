@@ -3,6 +3,8 @@ const jsonToNormal = (actionJson : string) => {
         return 'Send Message';
     }else if (actionJson === 'set_label') {
         return 'Set Label';
+    }else {
+        return 'Error converting json Action Name to Normal';
     }
 };
 
