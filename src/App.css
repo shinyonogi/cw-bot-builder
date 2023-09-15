@@ -29,7 +29,7 @@ time, mark, audio, video {
   justify-content: center;
   box-sizing: border-box;
   width: 4.3rem;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 1.5rem;
   border-right: solid 1px rgb(193, 191, 191);
 }
@@ -59,7 +59,7 @@ time, mark, audio, video {
   background-color: #333333;
 
   /*Change later*/
-  height: calc(100vh - 2.8rem);
+  min-height: calc(100vh - 2.8rem);
 }
 
 .input-container {
@@ -139,6 +139,7 @@ time, mark, audio, video {
   padding: 2rem 5rem;
   border-radius: 1rem;
   background-color: #e7e0e6;
+  margin-bottom: 4rem;
 }
 
 .search-question {
@@ -214,4 +215,8 @@ time, mark, audio, video {
   margin: 1rem 0rem;
   padding: 1rem 2rem;
   border-radius: 1rem;
+}
+
+.workflow-element-text {
+  white-space: 'pre-line';
 }

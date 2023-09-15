@@ -18,7 +18,7 @@ const CreatedFlowElement: React.FC<CreatedFlowElementProps> = ( { workFlow }) =>
                 </div>
             ))}
         </div>
-    )
+    );
 };
 
 export default CreatedFlowElement;
