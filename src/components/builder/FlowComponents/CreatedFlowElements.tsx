@@ -11,10 +11,13 @@ const CreatedFlowElement: React.FC<CreatedFlowElementProps> = ( { workFlow }) =>
         <div className="flow-element-container">
             {workFlow.map((workFlowElement, index) => (
                 <div className="workflow-element">
-                    <h1>Step: {index + 1}</h1>
-                    <h2>Action Type: {jsonToNormal(workFlowElement.type)}</h2>
-                    <h2>Content</h2>
-                    <h2 dangerouslySetInnerHTML = {toHtmlString(workFlowElement.message.text)}></h2>
+                    <h1 className="workflow-step">Step: {index + 1}</h1>
+                    <div className="workflow-action-type">
+                        <h3>Action Type:</h3>
+                        <h2>{jsonToNormal(workFlowElement.type)}</h2>
+                    </div>
+                    <h2>Content: </h2>
+                    <h2 className="workflow-content" dangerouslySetInnerHTML = {toHtmlString(workFlowElement.message.text)}></h2>
                 </div>
             ))}
         </div>

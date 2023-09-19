@@ -1,11 +1,11 @@
-interface BotNameInputProps {
+interface InputProps {
     value: string,
     placeholder?: string;
     name?: string;
     onChange: (value: string) => void;
 };
 
-const InputGeneral: React.FC<BotNameInputProps> = ({ value, placeholder, name, onChange }) => {
+const InputGeneral: React.FC<InputProps> = ({ value, placeholder, name, onChange }) => {
     return (
         <div className="input-element">
             <h2>{name}</h2>

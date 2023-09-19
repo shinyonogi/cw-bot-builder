@@ -206,7 +206,7 @@ time, mark, audio, video {
 }
 
 .flow-element-container {
-  width: 20%;
+  width: 30%;
 }
 
 .workflow-element {
@@ -219,4 +219,33 @@ time, mark, audio, video {
 
 .workflow-element-text {
   white-space: 'pre-line';
+}
+
+.workflow-step {
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.workflow-action-type {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.workflow-action-type h3 {
+  margin-right: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.workflow-action-type h2 {
+  font-size: 1rem;
+}
+
+.workflow-content {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
 }
