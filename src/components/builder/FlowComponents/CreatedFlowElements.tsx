@@ -13,11 +13,13 @@ const CreatedFlowElement: React.FC<CreatedFlowElementProps> = ( { workFlow }) =>
                 <div className="workflow-element">
                     <h1 className="workflow-step">Step: {index + 1}</h1>
                     <div className="workflow-action-type">
-                        <h3>Action Type:</h3>
-                        <h2>{jsonToNormal(workFlowElement.type)}</h2>
+                        <h2>Action Type:</h2>
+                        <h3>{jsonToNormal(workFlowElement.type)}</h3>
                     </div>
-                    <h2>Content: </h2>
-                    <h2 className="workflow-content" dangerouslySetInnerHTML = {toHtmlString(workFlowElement.message.text)}></h2>
+                    <div className="workflow-content">
+                        <h2>Content: </h2>
+                        <h3 dangerouslySetInnerHTML = {toHtmlString(workFlowElement.message.text)}></h3>
+                    </div>
                 </div>
             ))}
         </div>

@@ -234,16 +234,20 @@ time, mark, audio, video {
   margin-bottom: 1rem;
 }
 
-.workflow-action-type h3 {
+.workflow-action-type h2 {
   margin-right: 0.3rem;
   font-size: 1.2rem;
 }
 
-.workflow-action-type h2 {
+.workflow-action-type h3 {
   font-size: 1rem;
 }
 
-.workflow-content {
+.workflow-content h2 {
+  font-size: 1.2rem;
+}
+
+.workflow-content h3 {
   background-color: #ffffff;
   border-radius: 1rem;
   padding: 0.5rem 1rem;
